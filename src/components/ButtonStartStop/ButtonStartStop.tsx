@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
-import { View, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { View, TouchableOpacity, TouchableOpacityProps } from 'react-native';
 import { buttonStartStopStyles } from './buttonStartStopStyles';
 import { FontAwesome5 } from '@expo/vector-icons'
 
-const ButtonStartStop: React.FC = () => {
-  const [buttonIcon, setButtonIcon] = useState('play')
+type buttonProps = TouchableOpacityProps & {
+  buttonIcon: string
+}
 
-  const toggleButtonIcon = () => {
-    buttonIcon === 'play' ? 'stop' : 'play'
-  }
-
+const ButtonStartStop: React.FC<buttonProps> = ({ buttonIcon, ...rest }) => {
   return (
-    <TouchableOpacity activeOpacity={ 0.7 }>
+    <TouchableOpacity
+      activeOpacity={ 0.7 }
+      { ...rest }
+    >
       <View>
         <FontAwesome5
           name={ buttonIcon }
