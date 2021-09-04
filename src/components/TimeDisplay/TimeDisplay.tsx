@@ -12,13 +12,7 @@ const TimeDisplay: React.FC<TimeDisplayProps> = ({ buttonStatus }) => {
   const [hours, setHours] = useState(0)
 
   useEffect(() => {
-    if (buttonStatus === 'stop') {
-      setTimeout(() => setSeconds (seconds + 1), 1000)
-    } else {
-      setSeconds(0)
-      setMinutes(0)
-      setHours(0)
-    }
+    buttonStatus === 'stop' && setTimeout(() => setSeconds(seconds + 1), 1000)
 
     if (seconds === 60) {
       setSeconds(0)
@@ -30,6 +24,12 @@ const TimeDisplay: React.FC<TimeDisplayProps> = ({ buttonStatus }) => {
       setHours(hours + 1)
     }
   })
+
+  function clearDisplay() {
+    setSeconds(0)
+    setMinutes(0)
+    setHours(0)
+  }
 
   function numberPattern(number: number) {
     return String(number).length != 2 ? '0' + number : number
