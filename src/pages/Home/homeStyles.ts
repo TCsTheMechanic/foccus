@@ -9,10 +9,4 @@ export const homeStyles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: theme.colors.background,
   },
-
-  time: {
-    color: theme.colors.text,
-    fontSize: 80,
-    marginBottom: 20,
-  }
 })

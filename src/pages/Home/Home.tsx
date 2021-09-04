@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import { View, Text, StatusBar } from 'react-native';
+import { View, StatusBar } from 'react-native';
 import { homeStyles } from './homeStyles';
 import ButtonStartStop from '../../components/ButtonStartStop/ButtonStartStop';
+import TimeDisplay from '../../components/TimeDisplay/TimeDisplay';
 
 const Home: React.FC = () => {
-  const [time, setTime] = useState('00:00')
+  const [buttonIcon, setButtonIcon] = useState('play')
 
-  const updateTime = () => {
-    setTime(time + 1)
+  function toggleTimer() {
+    buttonIcon === 'play' ? setButtonIcon('stop') : setButtonIcon('play')
   }
 
   return (
@@ -18,11 +19,14 @@ const Home: React.FC = () => {
         translucent
       />
 
-      <Text style={ homeStyles.time }>
-        { time }
-      </Text>
+      <TimeDisplay
+        buttonStatus={ buttonIcon }
+      />
 
-      <ButtonStartStop />
+      <ButtonStartStop
+        buttonIcon={ buttonIcon }
+        onPress={ toggleTimer }
+      />
     </View>
   );
 }
