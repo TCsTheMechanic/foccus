@@ -1,26 +1,26 @@
 import React from 'react';
 import { View, TouchableOpacity, TouchableOpacityProps } from 'react-native';
-import { buttonStartStopStyles } from './buttonStartStopStyles';
+import { iconButtonStyles } from './iconButtonStyles';
 import { FontAwesome5 } from '@expo/vector-icons'
 
 type buttonProps = TouchableOpacityProps & {
   buttonIcon: string
 }
 
-const ButtonStartStop: React.FC<buttonProps> = ({ buttonIcon, ...rest }) => {
+const IconButton: React.FC<buttonProps> = ({ buttonIcon, ...rest }) => {
   return (
     <TouchableOpacity
-      activeOpacity={ 0.7 }
-      { ...rest }
+      activeOpacity={0.7}
+      {...rest}
     >
       <View>
         <FontAwesome5
-          name={ buttonIcon }
-          style={ buttonStartStopStyles.icon }
+          name={buttonIcon}
+          style={iconButtonStyles.icon}
         />
       </View>
     </TouchableOpacity>
   )
 }
 
-export default ButtonStartStop;
+export default IconButton;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, StatusBar } from 'react-native';
 import { homeStyles } from './homeStyles';
-import ButtonStartStop from '../../components/ButtonStartStop/ButtonStartStop';
+import IconButton from '../../components/IconButton/IconButton';
 import TimeDisplay from '../../components/TimeDisplay/TimeDisplay';
 
 const Home: React.FC = () => {
@@ -23,7 +23,7 @@ const Home: React.FC = () => {
         buttonStatus={ buttonIcon }
       />
 
-      <ButtonStartStop
+      <IconButton
         buttonIcon={ buttonIcon }
         onPress={ toggleTimer }
       />
